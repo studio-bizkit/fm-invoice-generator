@@ -8,30 +8,6 @@ import { Button } from "@/components/ui/button";
 import { ArrowLeft, Download } from "lucide-react";
 import { useRouter } from "next/navigation";
 
-export const metadata = {
-  title: "Invoice Preview | FM Studios",
-  description: "Preview and download your invoice.",
-  openGraph: {
-    title: "Invoice Preview | FM Studios",
-    description: "Preview and download your invoice.",
-    images: [
-      {
-        url: "https://i.ibb.co/BH6FQDXf/Screenshot-2025-07-30-191859.jpg",
-        width: 1200,
-        height: 630,
-        alt: "FM Studios Invoice Generator Thumbnail",
-      },
-    ],
-    type: "website",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Invoice Preview | FM Studios",
-    description: "Preview and download your invoice.",
-    images: ["https://i.ibb.co/BH6FQDXf/Screenshot-2025-07-30-191859.jpg"],
-  },
-};
-
 export default function PreviewPastInvoice({
   params,
 }: {

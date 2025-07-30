@@ -40,30 +40,6 @@ const steps = [
   { title: "Preview" },
 ];
 
-export const metadata = {
-  title: "Create New Invoice | FM Studios",
-  description: "Generate professional invoices in simple steps.",
-  openGraph: {
-    title: "Create New Invoice | FM Studios",
-    description: "Generate professional invoices in simple steps.",
-    images: [
-      {
-        url: "https://i.ibb.co/BH6FQDXf/Screenshot-2025-07-30-191859.jpg",
-        width: 1200,
-        height: 630,
-        alt: "FM Studios Invoice Generator Thumbnail",
-      },
-    ],
-    type: "website",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Create New Invoice | FM Studios",
-    description: "Generate professional invoices in simple steps.",
-    images: ["https://i.ibb.co/BH6FQDXf/Screenshot-2025-07-30-191859.jpg"],
-  },
-};
-
 export default function StepperDemo() {
   const [currentStep, setCurrentStep] = useState(0);
   const [invoiceData, setInvoiceData] = useState<InvoiceFormData | null>(null);

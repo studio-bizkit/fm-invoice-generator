@@ -17,30 +17,6 @@ import {
 import { ArrowLeft, Search, ArrowUpDown } from "lucide-react";
 import { getPastInvoices } from "@/lib/data";
 
-export const metadata = {
-  title: "Past Invoices | FM Studios",
-  description: "View and manage your past invoices.",
-  openGraph: {
-    title: "Past Invoices | FM Studios",
-    description: "View and manage your past invoices.",
-    images: [
-      {
-        url: "https://i.ibb.co/BH6FQDXf/Screenshot-2025-07-30-191859.jpg",
-        width: 1200,
-        height: 630,
-        alt: "FM Studios Invoice Generator Thumbnail",
-      },
-    ],
-    type: "website",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Past Invoices | FM Studios",
-    description: "View and manage your past invoices.",
-    images: ["https://i.ibb.co/BH6FQDXf/Screenshot-2025-07-30-191859.jpg"],
-  },
-};
-
 export default function PastInvoicesPage() {
   const [searchTerm, setSearchTerm] = useState("");
   const [loading, setLoading] = useState(true);
