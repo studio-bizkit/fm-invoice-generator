@@ -189,7 +189,7 @@ export default function InvoicePreviewPage({
 
   if (isLoading) {
     return (
-      <div className="container mx-auto py-8 px-4 flex justify-center items-center min-h-[60vh]">
+      <div className="container mx-auto py-4 px-4 flex justify-center items-center min-h-[60vh]">
         <div className="text-center">
           <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary mx-auto"></div>
           <p className="mt-4 text-muted-foreground">
@@ -202,7 +202,7 @@ export default function InvoicePreviewPage({
 
   if (!invoiceData) {
     return (
-      <div className="container mx-auto py-8 px-4 flex justify-center items-center min-h-[60vh]">
+      <div className="container mx-auto py-4 px-4 flex justify-center items-center min-h-[60vh]">
         <div className="text-center">
           <p className="text-lg text-muted-foreground">
             No invoice data found.
@@ -216,10 +216,10 @@ export default function InvoicePreviewPage({
   }
 
   return (
-    <div className="container mx-auto py-8 px-4">
+    <div className="container mx-auto py-4 px-4">
       {savedPdfUrl && (
-        <div className="container mx-auto py-8 px-4">
-          <div className="mt-6">
+        <div className="container mx-auto py-4 px-4">
+          <div>
             <h2 className="text-xl font-semibold mb-2">PDF Preview</h2>
             <iframe
               src={savedPdfUrl}

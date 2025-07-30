@@ -8,6 +8,30 @@ import { Button } from "@/components/ui/button";
 import { ArrowLeft, Download } from "lucide-react";
 import { useRouter } from "next/navigation";
 
+export const metadata = {
+  title: "Invoice Preview | FM Studios",
+  description: "Preview and download your invoice.",
+  openGraph: {
+    title: "Invoice Preview | FM Studios",
+    description: "Preview and download your invoice.",
+    images: [
+      {
+        url: "https://i.ibb.co/BH6FQDXf/Screenshot-2025-07-30-191859.jpg",
+        width: 1200,
+        height: 630,
+        alt: "FM Studios Invoice Generator Thumbnail",
+      },
+    ],
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Invoice Preview | FM Studios",
+    description: "Preview and download your invoice.",
+    images: ["https://i.ibb.co/BH6FQDXf/Screenshot-2025-07-30-191859.jpg"],
+  },
+};
+
 export default function PreviewPastInvoice({
   params,
 }: {
@@ -35,42 +59,44 @@ export default function PreviewPastInvoice({
     fetchInvoice();
   }, [invoiceNumber]);
 
-  if (loading) return <div>Loading...</div>;
+  if (loading) return <div className="flex min-h-screen items-center justify-center bg-background"><div className="text-muted-foreground font-light">Loading...</div></div>;
 
-  if (!invoice) return <div>Invoice not found. {invoice}</div>;
+  if (!invoice) return <div className="flex min-h-screen items-center justify-center bg-background"><div className="text-muted-foreground font-light">Invoice not found. {invoice}</div></div>;
 
   return (
-    <div className="max-w-7xl mx-auto px-4 py-6 space-y-6">
-      {/* Header Row */}
-      <div className="flex justify-between items-center">
-        <Button
-          type="button"
-          variant="outline"
-          onClick={() => router.push("/past-invoices")}
-          className="flex items-center gap-2"
-        >
-          <ArrowLeft className="h-4 w-4" />
-          Back
-        </Button>
-
-        {pdfUrl && (
-          <a
-            href={pdfUrl}
-            download="final_document.pdf"
-            className="inline-flex items-center gap-2 bg-primary text-white px-4 py-2 rounded hover:bg-primary/90 transition"
+    <div className="min-h-screen bg-background">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 py-6 sm:py-8 space-y-6 sm:space-y-8">
+        {/* Header Row */}
+        <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center space-y-4 sm:space-y-0">
+          <Button
+            type="button"
+            variant="outline"
+            onClick={() => router.push("/past-invoices")}
+            className="w-fit h-12 px-4 text-base font-normal border hover:bg-muted/50 transition-colors touch-manipulation flex items-center gap-2"
           >
-            <Download className="h-4 w-4" />
-            Download PDF
-          </a>
-        )}
-      </div>
+            <ArrowLeft className="h-4 w-4" />
+            Back
+          </Button>
 
-      {/* PDF Viewer */}
-      <div className="w-full border rounded overflow-hidden shadow">
-        <InvoicePreviewPage
-          invoice={invoice}
-          onPdfReady={(url: string) => setPdfUrl(url)}
-        />
+          {pdfUrl && (
+            <a
+              href={pdfUrl}
+              download="final_document.pdf"
+              className="w-fit h-12 px-4 inline-flex items-center justify-center gap-2 bg-primary text-primary-foreground rounded-md hover:opacity-90 transition-opacity font-normal text-base touch-manipulation"
+            >
+              <Download className="h-4 w-4" />
+              Download PDF
+            </a>
+          )}
+        </div>
+
+        {/* PDF Viewer */}
+        <div className="w-full border border-border rounded-lg overflow-hidden">
+          <InvoicePreviewPage
+            invoice={invoice}
+            onPdfReady={(url: string) => setPdfUrl(url)}
+          />
+        </div>
       </div>
     </div>
   );
